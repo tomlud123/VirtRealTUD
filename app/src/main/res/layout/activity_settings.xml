@@ -26,16 +26,18 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Größe des Scan-Puffers:"
+            android:text="Anzahl der Scan-Proben"
             android:textColor="#000000" />
 
         <com.google.android.material.slider.Slider
+            android:id="@+id/sampleRateSlider"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginLeft="16dp"
             android:stepSize="1.0"
+            android:value="3"
             android:valueFrom="1.0"
-            android:valueTo="50.0"
+            android:valueTo="200.0"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <LinearLayout
@@ -50,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Skanerfassungmodus"
+                android:text="Datenerfassung"
                 android:textColor="#000000" />
 
             <Spinner
@@ -68,23 +70,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Grenzwert der Erfassung für Musik-Auslösung:"
+            android:text="Unsensibilität"
             android:textColor="#000000" />
 
         <com.google.android.material.slider.Slider
-            android:id="@+id/slider"
+            android:id="@+id/sensivitySlider"
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:layout_marginLeft="16dp"
+            android:value="10"
             android:valueFrom="1.0"
-            android:valueTo="400.0"
+            android:valueTo="200.0"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/leftHand"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginRight="32dp"
             android:minHeight="48dp"
             android:text="Linke Hand Modus"
             android:textColor="#000000" />
