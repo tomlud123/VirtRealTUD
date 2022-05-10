@@ -3,4 +3,9 @@
     <string-array name="scan_result_collect_modes">
         <item>Proben-Mittelwert</item>
     </string-array>
+    <string-array name="samples">
+        <item>Electro</item>
+        <item>Hi-Hat</item>
+        <item>Rattle</item>
+    </string-array>
 </resources>

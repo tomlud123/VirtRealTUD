@@ -1,5 +1,9 @@
 package com.example.virtrealtud;
 
+import static com.example.virtrealtud.SettingsActivity.DEFAULT_BUFFER_SIZE;
+import static com.example.virtrealtud.SettingsActivity.DEFAULT_SAMPLE;
+import static com.example.virtrealtud.SettingsActivity.DEFAULT_SENSITIVITY;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +14,6 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,17 +40,18 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensorAcc = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mp = MediaPlayer.create(this, R.raw.electr);
     }
 
     protected void onResume() {
         super.onResume();
 
         SharedPreferences sharedPref = getSharedPreferences("settings",0);
-        float scanBufferSize = sharedPref.getFloat("buffer size", SettingsActivity.DEFAULT_BUFFER_SIZE);
+        float scanBufferSize = sharedPref.getFloat("buffer size", DEFAULT_BUFFER_SIZE);
         accBuffer = new CircularFifoQueue<>((int) scanBufferSize);
-        sensitivity = sharedPref.getFloat("sensitivity", SettingsActivity.DEFAULT_SENSITIVITY);
+        sensitivity = sharedPref.getFloat("sensitivity", DEFAULT_SENSITIVITY);
         leftHand = sharedPref.getBoolean("left hand", false);
+        int sample = sharedPref.getInt("sample", DEFAULT_SAMPLE);
+        mp = MediaPlayer.create(this, sample);
 
         sensorManager.registerListener(this, sensorAcc, SensorManager.SENSOR_DELAY_FASTEST);
     }

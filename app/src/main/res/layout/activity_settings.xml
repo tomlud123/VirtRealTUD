@@ -26,7 +26,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Anzahl der Scan-Proben"
+            android:text="Größe der Scanproben"
             android:textColor="#000000" />
 
         <com.google.android.material.slider.Slider
@@ -48,21 +48,21 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Datenerfassung"
+                android:text="Sensorerfassung"
                 android:textColor="#000000" />
 
             <Spinner
                 android:id="@+id/spinner"
-                android:theme="@style/mySpinnerItemStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:entries="@array/scan_result_collect_modes"
                 android:minHeight="48dp"
-                android:spinnerMode="dropdown" />
+                android:spinnerMode="dropdown"
+                android:theme="@style/mySpinnerItemStyle" />
         </LinearLayout>
 
         <TextView
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Unsensibilität"
+            android:text="Auslösepegel"
             android:textColor="#000000" />
 
         <com.google.android.material.slider.Slider
@@ -82,6 +82,32 @@
             android:valueFrom="1.0"
             android:valueTo="200.0"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Klang Sample"
+                android:textColor="#000000" />
+
+            <Spinner
+                android:id="@+id/sampleSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:entries="@array/samples"
+                android:minHeight="48dp"
+                android:spinnerMode="dropdown"
+                android:theme="@style/mySpinnerItemStyle" />
+
+        </LinearLayout>
 
         <Switch
             android:id="@+id/leftHand"
